@@ -3,352 +3,293 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Web Proposal — Levant & Co. | Web Vanguard</title>
-  <meta name="description" content="Exclusive web design proposal for Levant & Co. by Web Vanguard Dubai." />
+  <title>Levant & Co. — Web Design Proposal · Web Vanguard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700;1,900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --emerald: #1B4332;
-      --emerald-light: #40916C;
-      --gold: #D4A017;
-      --cream: #FDF6E3;
-      --dark: #0D1F17;
-      --dark-card: #152B1F;
-      --border: #1E3D2A;
-      --text: #F0EBD8;
-      --muted: #A89F86;
+      --accent: #D4750A;
+      --accent-rgb: 212, 117, 10;
+      --bg: #0D0906;
+      --text: #F0EDE8;
+      --muted: rgba(240, 237, 232, 0.5);
+      --border: rgba(212, 117, 10, 0.15);
+      --card-bg: rgba(212, 117, 10, 0.05);
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { background: var(--dark); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; }
-    .font-display { font-family: Georgia, 'Times New Roman', serif; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-weight: 400; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { opacity: 0.8; }
 
-    /* NAV */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      position: sticky; top: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 1rem 2rem; background: rgba(13,31,23,0.95); backdrop-filter: blur(12px);
+      padding: 1.1rem 2rem;
+      background: rgba(13, 9, 6, 0.95); backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
-    .nav-logo { display: flex; align-items: center; gap: 0.75rem; }
-    .nav-logo-mark { width: 32px; height: 32px; background: var(--emerald); display: flex; align-items: center; justify-content: center; }
-    .nav-logo-mark span { color: var(--gold); font-weight: 900; font-size: 16px; font-family: Georgia, serif; }
-    .nav-logo-text { font-weight: 700; font-size: 1rem; letter-spacing: 0.05em; }
-    .nav-right { display: flex; align-items: center; gap: 1rem; }
-    .badge { background: var(--gold); color: #000; font-size: 0.65rem; font-weight: 700; padding: 0.25rem 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; }
-    .lang-toggle { background: transparent; border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.8rem; font-size: 0.75rem; cursor: pointer; letter-spacing: 0.1em; transition: all 0.2s; }
-    .lang-toggle:hover { border-color: var(--gold); color: var(--gold); }
+    .nav-logo { font-size: 1.15rem; font-weight: 600; letter-spacing: 0.02em; }
+    .nav-logo span { color: var(--accent); }
+    .lang-toggle { display: flex; gap: 0.5rem; }
+    .lang-btn { background: none; border: 1px solid var(--border); color: var(--muted); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-family: 'Inter', sans-serif; cursor: pointer; transition: all 0.2s; }
+    .lang-btn.active, .lang-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* HERO */
-    .hero {
-      min-height: 100vh; display: flex; align-items: center; justify-content: center;
-      background: linear-gradient(135deg, #0D1F17 0%, #152B1F 50%, #0D1F17 100%);
-      position: relative; overflow: hidden; padding: 8rem 2rem 4rem;
+    .hero { padding: clamp(4rem, 10vw, 7rem) 2rem; max-width: 900px; margin: 0 auto; text-align: center; }
+    .hero-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 2rem; }
+    .hero h1 {
+      font-family: 'Playfair Display', serif; font-style: italic; font-weight: 900;
+      font-size: clamp(3.5rem, 10vw, 6.5rem); line-height: 1.05; margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--text) 55%, var(--accent));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
-    .hero::before {
-      content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-      background: radial-gradient(ellipse at 60% 40%, rgba(212,160,23,0.05) 0%, transparent 50%);
-    }
-    .hero-inner { max-width: 900px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
-    .hero-label { color: var(--gold); font-size: 0.7rem; letter-spacing: 0.4em; text-transform: uppercase; margin-bottom: 1.5rem; }
-    .hero-title { font-family: Georgia, serif; font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 700; line-height: 1.1; margin-bottom: 1.5rem; }
-    .hero-title em { color: var(--gold); font-style: normal; }
-    .hero-tagline { color: #888; font-size: 1.1rem; margin-bottom: 0.5rem; }
-    .hero-meta { color: var(--muted); font-size: 0.85rem; margin-bottom: 3rem; }
-    .hero-price { display: inline-block; border: 1px solid var(--gold); padding: 0.5rem 1.5rem; color: var(--gold); font-size: 1.4rem; font-weight: 700; margin-bottom: 2rem; font-family: Georgia, serif; }
-    .hero-cta { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--gold); color: #000; padding: 1rem 2.5rem; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.1em; text-decoration: none; transition: background 0.2s; }
-    .hero-cta:hover { background: var(--cream); }
+    .hero-tagline { font-size: clamp(1rem, 2.5vw, 1.2rem); font-weight: 300; color: var(--muted); max-width: 580px; margin: 0 auto 2rem; }
+    .hero-pills { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+    .pill { padding: 0.45rem 1.1rem; border-radius: 30px; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em; }
+    .pill-accent { background: var(--accent); color: #fff; }
+    .pill-outline { border: 1px solid var(--border); color: var(--text); }
+    .hero-link { font-size: 0.95rem; font-weight: 500; color: var(--accent); letter-spacing: 0.02em; }
 
-    /* SECTIONS */
-    .section { padding: 5rem 2rem; max-width: 1000px; margin: 0 auto; }
-    .section-num { color: var(--gold); font-size: 0.7rem; letter-spacing: 0.4em; text-transform: uppercase; margin-bottom: 0.5rem; font-weight: 700; }
-    .section-title { font-family: Georgia, serif; font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700; margin-bottom: 1.5rem; }
-    .section-title em { color: var(--gold); font-style: normal; }
-    .section-text { color: var(--muted); max-width: 600px; line-height: 1.8; }
-    .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+    .opportunity { background: var(--card-bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: clamp(3rem, 8vw, 5rem) 2rem; text-align: center; }
+    .opportunity-inner { max-width: 700px; margin: 0 auto; }
+    .opportunity h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 700; margin-bottom: 1.2rem; }
+    .opportunity p { color: var(--muted); font-size: 1.05rem; margin-bottom: 1.5rem; }
+    .opportunity-conclusion { color: var(--text); font-weight: 600; font-size: 1.05rem; }
+    .opportunity-conclusion span { color: var(--accent); }
 
-    /* CARDS */
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; background: var(--border); margin-top: 3rem; }
-    .card { background: var(--dark-card); padding: 2rem; }
-    .card-icon { font-size: 1.5rem; margin-bottom: 1rem; }
-    .card-title { font-weight: 600; font-size: 1.1rem; margin-bottom: 0.5rem; }
-    .card-text { color: #888; font-size: 0.9rem; line-height: 1.7; }
+    .section { padding: clamp(3rem, 8vw, 5rem) 2rem; max-width: 900px; margin: 0 auto; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 3.5vw, 2rem); font-weight: 700; margin-bottom: 3rem; text-align: center; }
+    .built-list { display: flex; flex-direction: column; gap: 2.5rem; }
+    .built-item { display: flex; gap: 2rem; align-items: flex-start; }
+    .built-num { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 8vw, 5rem); font-weight: 900; color: rgba(212, 117, 10, 0.12); line-height: 1; min-width: 80px; flex-shrink: 0; }
+    .built-content h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .built-content p { color: var(--muted); font-size: 0.95rem; }
 
-    /* FEATURES */
-    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; margin-top: 3rem; }
-    .feature { background: var(--dark-card); border: 1px solid var(--border); padding: 1rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; font-size: 0.9rem; }
-    .feature-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .features-section { background: var(--card-bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: clamp(3rem, 8vw, 5rem) 2rem; }
+    .features-inner { max-width: 900px; margin: 0 auto; }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+    .feature-item { display: flex; gap: 1rem; align-items: flex-start; padding: 1.2rem; border: 1px solid var(--border); border-radius: 10px; background: rgba(212, 117, 10, 0.03); }
+    .feature-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .feature-text { font-size: 0.9rem; color: var(--muted); }
+    .feature-text strong { color: var(--text); display: block; margin-bottom: 0.2rem; font-weight: 500; }
 
-    /* PRICING */
-    .pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 3rem; }
-    .plan { background: var(--dark-card); border: 1px solid var(--border); padding: 2rem; position: relative; }
-    .plan.recommended { border-color: var(--gold); }
-    .plan-badge { position: absolute; top: -1px; right: 1.5rem; background: var(--gold); color: #000; font-size: 0.65rem; font-weight: 700; padding: 0.2rem 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
-    .plan-name { font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
-    .plan-price { font-family: Georgia, serif; font-size: 2rem; font-weight: 700; color: var(--text); margin-bottom: 0.25rem; }
-    .plan.recommended .plan-price { color: var(--gold); }
-    .plan-period { color: var(--muted); font-size: 0.8rem; margin-bottom: 1.5rem; }
-    .plan-features { list-style: none; }
-    .plan-features li { color: #888; font-size: 0.85rem; padding: 0.3rem 0; border-bottom: 1px solid var(--border); }
-    .plan-features li:last-child { border-bottom: none; }
-    .plan-features li::before { content: '✓ '; color: var(--gold); }
+    .pricing-section { padding: clamp(3rem, 8vw, 5rem) 2rem; max-width: 900px; margin: 0 auto; }
+    .pricing-table { width: 100%; border-collapse: collapse; margin-top: 2.5rem; }
+    .pricing-table th { text-align: left; padding: 0.8rem 1rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--border); }
+    .pricing-table td { padding: 1rem 1rem; font-size: 0.92rem; border-bottom: 1px solid var(--border); color: var(--muted); vertical-align: top; }
+    .pricing-table tr.highlight td { color: var(--text); background: rgba(212, 117, 10, 0.06); }
+    .pricing-table tr.highlight td:first-child { border-left: 2px solid var(--accent); }
+    .plan-name { font-weight: 600; color: var(--text); white-space: nowrap; }
+    .plan-price { font-weight: 600; color: var(--accent); white-space: nowrap; }
 
-    /* CTA */
-    .cta-section { background: var(--dark-card); border-top: 1px solid var(--border); padding: 5rem 2rem; text-align: center; }
-    .cta-inner { max-width: 700px; margin: 0 auto; }
-    .cta-title { font-family: Georgia, serif; font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1rem; }
-    .cta-text { color: var(--muted); margin-bottom: 3rem; }
-    .cta-buttons { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
-    .btn-whatsapp { display: inline-flex; align-items: center; gap: 0.5rem; background: #25D366; color: #fff; padding: 1rem 2rem; font-weight: 700; text-decoration: none; transition: background 0.2s; }
-    .btn-whatsapp:hover { background: #1EBE5D; }
-    .btn-demo { display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 1rem 2rem; font-weight: 700; text-decoration: none; transition: all 0.2s; }
-    .btn-demo:hover { background: var(--gold); color: #000; }
+    .cta-section { padding: clamp(4rem, 10vw, 7rem) 2rem; text-align: center; max-width: 700px; margin: 0 auto; }
+    .cta-section h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; margin-bottom: 1rem; }
+    .cta-section p { color: var(--muted); font-size: 1.05rem; margin-bottom: 2.5rem; }
+    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-whatsapp { display: inline-flex; align-items: center; gap: 0.6rem; background: #25D366; color: #fff; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1rem; padding: 0.9rem 2rem; border-radius: 50px; text-decoration: none; transition: opacity 0.2s; }
+    .btn-whatsapp:hover { opacity: 0.9; color: #fff; }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid var(--border); color: var(--text); font-family: 'Inter', sans-serif; font-weight: 500; font-size: 1rem; padding: 0.9rem 2rem; border-radius: 50px; text-decoration: none; transition: border-color 0.2s; }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* FOOTER */
-    footer { background: var(--dark); border-top: 1px solid var(--border); padding: 2rem; text-align: center; color: var(--muted); font-size: 0.8rem; }
+    footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.82rem; }
 
-    @media (max-width: 640px) {
-      nav { padding: 1rem; }
-      .nav-right .badge { display: none; }
-    }
+    [dir="rtl"] .built-item { flex-direction: row-reverse; text-align: right; }
+    [dir="rtl"] .feature-item { flex-direction: row-reverse; text-align: right; }
+    [dir="rtl"] .pricing-table th, [dir="rtl"] .pricing-table td { text-align: right; }
+    [dir="rtl"] .pricing-table tr.highlight td:first-child { border-left: none; border-right: 2px solid var(--accent); }
+    @media (max-width: 600px) { .built-num { min-width: 55px; font-size: 3rem; } .pricing-table th:last-child, .pricing-table td:last-child { display: none; } nav { padding: 1rem 1.2rem; } }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
-    <div class="nav-logo">
-      <div class="nav-logo-mark"><span>W</span></div>
-      <span class="nav-logo-text">Web Vanguard</span>
-    </div>
-    <div class="nav-right">
-      <span class="badge">Exclusive Proposal</span>
-      <button class="lang-toggle" onclick="toggleLang()" id="langBtn">عربي</button>
+    <div class="nav-logo">Web<span>Vanguard</span></div>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+      <button class="lang-btn" onclick="setLang('ar')" id="btn-ar">AR</button>
     </div>
   </nav>
 
-  <!-- HERO -->
   <section class="hero">
-    <div class="hero-inner">
-      <p class="hero-label" data-en="Lebanese Fine Dining · DIFC Dubai" data-ar="مطعم لبناني فاخر · دبي فنلندا">Lebanese Fine Dining · DIFC Dubai</p>
-      <h1 class="hero-title font-display">
-        <span data-en="Levant & Co." data-ar="لفان أند كو">Levant & Co.</span><br/>
-        <em data-en="Restaurant" data-ar="مطعم">Restaurant</em>
-      </h1>
-      <p class="hero-tagline" data-en="Where the Levant Speaks" data-ar="حيث يتحدث المشرق">Where the Levant Speaks</p>
-      <p class="hero-meta">
-        <span data-en="Proposal prepared by Web Vanguard · March 2026" data-ar="مقترح مُعدّ من Web Vanguard · مارس 2026">Proposal prepared by Web Vanguard · March 2026</span>
-      </p>
-      <div class="hero-price">
-        <span data-en="Growth Plan — AED 4,500" data-ar="خطة النمو — 4,500 درهم">Growth Plan — AED 4,500</span>
-      </div>
-      <br/>
-      <a href="https://levant-co.vercel.app" target="_blank" class="hero-cta">
-        <span data-en="View Live Demo →" data-ar="عرض الموقع الحي →">View Live Demo →</span>
-      </a>
+    <p class="hero-label" data-key="hero-label">Exclusive Web Design Proposal · Dubai · March 2026</p>
+    <h1 data-key="hero-h1">Levant<br>& Co.</h1>
+    <p class="hero-tagline" data-key="hero-tagline">Bring more guests to your table — starting with the ones searching online right now.</p>
+    <div class="hero-pills">
+      <span class="pill pill-accent" data-key="pill-plan">Growth Plan</span>
+      <span class="pill pill-outline">AED 4,500</span>
+    </div>
+    <a href="https://levant-co.vercel.app" target="_blank" class="hero-link" data-key="hero-link">View Live Website →</a>
+  </section>
+
+  <section class="opportunity">
+    <div class="opportunity-inner">
+      <h2 data-key="opp-title">Your clients are searching online right now.</h2>
+      <p data-key="opp-body">Dubai diners discover new restaurants online and on Instagram. Without a professional website, your authentic Lebanese cuisine is only reaching the people who already know you exist.</p>
+      <p class="opportunity-conclusion" data-key="opp-conclusion">We built your website. <span>It's ready.</span></p>
     </div>
   </section>
 
-  <hr class="divider" />
-
-  <!-- 01 VISUAL CONCEPT -->
-  <div class="section">
-    <p class="section-num">01</p>
-    <h2 class="section-title font-display" data-en="Visual <em>Concept</em>" data-ar="المفهوم <em>البصري</em>">Visual <em>Concept</em></h2>
-    <p class="section-text" data-en="Deep emerald forests meet aged gold accents — an identity rooted in Mediterranean heritage, refined for contemporary fine dining. The colour palette evokes the ancient mountains and olive groves of the Levant, while cream typography brings warmth and approachability. A sophisticated yet inviting visual language that speaks to luxury with integrity." data-ar="غابات زمردية عميقة تلتقي بلمسات ذهبية — هوية متجذرة في التراث المتوسطي، مصقولة للمأكولات الراقية المعاصرة. تثير لوحة الألوان الجبال القديمة وبساتين الزيتون في المشرق، بينما تجلب طباعة الكريم الدفء والود.">Deep emerald forests meet aged gold accents — an identity rooted in Mediterranean heritage, refined for contemporary fine dining. The colour palette evokes the ancient mountains and olive groves of the Levant, while cream typography brings warmth and approachability. A sophisticated yet inviting visual language that speaks to luxury with integrity.</p>
-    <div class="cards">
-      <div class="card">
-        <div class="card-icon">🎨</div>
-        <div class="card-title" data-en="Colour Palette" data-ar="لوحة الألوان">Colour Palette</div>
-        <div class="card-text" data-en="Deep Emerald #1B4332 · Aged Gold #D4A017 · Cream #FDF6E3 · Forest shadows for depth" data-ar="زمرد عميق · ذهب عتيق · كريم · ظلال الغابات للعمق">Deep Emerald #1B4332 · Aged Gold #D4A017 · Cream #FDF6E3 · Forest shadows for depth</div>
+  <section class="section">
+    <h2 class="section-title" data-key="built-title">What We Built for You</h2>
+    <div class="built-list">
+      <div class="built-item">
+        <div class="built-num">01</div>
+        <div class="built-content">
+          <h3 data-key="b1-title">The Ambience</h3>
+          <p data-key="b1-body">A visually rich opening that puts guests in the mood before they've even made a reservation. Atmosphere sells before food does — and your opening does the selling.</p>
+        </div>
       </div>
-      <div class="card">
-        <div class="card-icon">✒️</div>
-        <div class="card-title" data-en="Typography" data-ar="الطباعة">Typography</div>
-        <div class="card-text" data-en="Cormorant Garamond (headings — elegant serif) + Inter (body/UI). Refined, readable, authentic." data-ar="كورموران جاراموند للعناوين + إنتر للنصوص. متقن، مقروء، أصيل.">Cormorant Garamond (headings — elegant serif) + Inter (body/UI). Refined, readable, authentic.</div>
+      <div class="built-item">
+        <div class="built-num">02</div>
+        <div class="built-content">
+          <h3 data-key="b2-title">The Menu</h3>
+          <p data-key="b2-body">Your full menu with descriptions and prices in AED, beautifully presented. Let the food speak for itself — every dish deserves to be seen before it's tasted.</p>
+        </div>
       </div>
-      <div class="card">
-        <div class="card-icon">🍇</div>
-        <div class="card-title" data-en="Visual Energy" data-ar="الطاقة البصرية">Visual Energy</div>
-        <div class="card-text" data-en="Warm, welcoming, heritage-rich. Full-height hero with cuisine focus, expansive menu showcase, testimonials with personality." data-ar="دافئ، ودود، غني بالتراث. بطل بكامل الارتفاع مع التركيز على الطهي، عرض قائمة واسعة.">Warm, welcoming, heritage-rich. Full-height hero with cuisine focus, expansive menu showcase, testimonials with personality.</div>
+      <div class="built-item">
+        <div class="built-num">03</div>
+        <div class="built-content">
+          <h3 data-key="b3-title">The Story</h3>
+          <p data-key="b3-body">Lebanese hospitality, family heritage, culinary philosophy. Guests want to know the people behind the restaurant before they book a table — this section tells that story.</p>
+        </div>
       </div>
-    </div>
-  </div>
-
-  <hr class="divider" />
-
-  <!-- 02 STRUCTURE -->
-  <div class="section">
-    <p class="section-num">02</p>
-    <h2 class="section-title font-display" data-en="Website <em>Structure</em>" data-ar="هيكل <em>الموقع</em>">Website <em>Structure</em></h2>
-    <p class="section-text" data-en="Seven strategic sections designed to move visitors from discovery to reservation, with cuisine as the hero." data-ar="سبعة أقسام استراتيجية مصممة لنقل الزوار من الاكتشاف إلى الحجز.">Seven strategic sections designed to move visitors from discovery to reservation, with cuisine as the hero.</p>
-    <div class="cards">
-      <div class="card">
-        <div class="card-icon">🎬</div>
-        <div class="card-title" data-en="Hero & Opening Hours" data-ar="البطل وساعات العمل">Hero & Opening Hours</div>
-        <div class="card-text" data-en="Full-screen immersive photography. Headline, tagline, reserve-now CTA, and live hours/location info bar." data-ar="تصوير فوتوغرافي غامر بملء الشاشة. عنوان رئيسي، شعار، زر الحجز.">Full-screen immersive photography. Headline, tagline, reserve-now CTA, and live hours/location info bar.</div>
+      <div class="built-item">
+        <div class="built-num">04</div>
+        <div class="built-content">
+          <h3 data-key="b4-title">The Experience</h3>
+          <p data-key="b4-body">A gallery of dishes, the dining room, special occasions. Every image is an invitation — show them what they'll find when they arrive.</p>
+        </div>
       </div>
-      <div class="card">
-        <div class="card-icon">🍽️</div>
-        <div class="card-title" data-en="Menu & Cuisine" data-ar="القائمة والطهي">Menu & Cuisine</div>
-        <div class="card-text" data-en="80+ dishes organized by course (Cold Mezze, Hot Mezze, Mains, Sweets) with full descriptions and AED pricing." data-ar="80+ طبقة منظمة حسب الدورة مع أوصاف كاملة وأسعار بالدرهم.">80+ dishes organized by course (Cold Mezze, Hot Mezze, Mains, Sweets) with full descriptions and AED pricing.</div>
-      </div>
-      <div class="card">
-        <div class="card-icon">🏛️</div>
-        <div class="card-title" data-en="Story & Heritage" data-ar="القصة والتراث">Story & Heritage</div>
-        <div class="card-text" data-en="Chef Rami's origin story, 4 generations of recipes, DIFC location benefits, family ethos, key stats." data-ar="قصة أصل الشيف رامي، 4 أجيال من الوصفات، فوائد موقع DIFC.">Chef Rami's origin story, 4 generations of recipes, DIFC location benefits, family ethos, key stats.</div>
-      </div>
-      <div class="card">
-        <div class="card-icon">📸</div>
-        <div class="card-title" data-en="Gallery" data-ar="المعرض">Gallery</div>
-        <div class="card-text" data-en="6 curated food & ambiance photographs with hover effects. Showcases the dining experience visually." data-ar="6 صور طعام وأجواء منتقاة بعناية مع تأثيرات التمرير.">6 curated food & ambiance photographs with hover effects. Showcases the dining experience visually.</div>
-      </div>
-      <div class="card">
-        <div class="card-icon">⭐</div>
-        <div class="card-title" data-en="Testimonials" data-ar="الشهادات">Testimonials</div>
-        <div class="card-text" data-en="4 authentic reviews from critics, business clients, heritage-conscious diners, and corporate partners." data-ar="4 آراء حقيقية من النقاد والعملاء.">4 authentic reviews from critics, business clients, heritage-conscious diners, and corporate partners.</div>
-      </div>
-      <div class="card">
-        <div class="card-icon">📞</div>
-        <div class="card-title" data-en="Reservations" data-ar="الحجوزات">Reservations</div>
-        <div class="card-text" data-en="Functional Formspree form + address, phone, email, hours. Party size selector, date picker, occasion field." data-ar="نموذج Formspree الوظيفي + العنوان والهاتف والبريد الإلكتروني والساعات.">Functional Formspree form + address, phone, email, hours. Party size selector, date picker, occasion field.</div>
+      <div class="built-item">
+        <div class="built-num">05</div>
+        <div class="built-content">
+          <h3 data-key="b5-title">Reserve a Table</h3>
+          <p data-key="b5-body">A reservation and enquiry form, WhatsApp for group bookings, and your location so guests can find you without friction. Every path leads to a seated guest.</p>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <hr class="divider" />
-
-  <!-- 03 TECH -->
-  <div class="section">
-    <p class="section-num">03</p>
-    <h2 class="section-title font-display" data-en="Technical <em>Stack</em>" data-ar="المكدس <em>التقني</em>">Technical <em>Stack</em></h2>
-    <p class="section-text" data-en="Enterprise-grade technology. Performance, scalability, and SEO optimized from day one. Same tech as global tech leaders." data-ar="تقنية على مستوى المؤسسات. الأداء والقابلية للتوسع و SEO محسّنة منذ اليوم الأول.">Enterprise-grade technology. Performance, scalability, and SEO optimized from day one. Same tech as global tech leaders.</p>
-    <div class="features">
-      <div class="feature"><span class="feature-icon">⚛️</span> <span data-en="Next.js 14 (React framework)" data-ar="Next.js 14 (إطار React)">Next.js 14 (React framework)</span></div>
-      <div class="feature"><span class="feature-icon">🎨</span> <span data-en="Tailwind CSS (utility styling)" data-ar="Tailwind CSS">Tailwind CSS (utility styling)</span></div>
-      <div class="feature"><span class="feature-icon">📘</span> <span data-en="TypeScript (type-safe code)" data-ar="TypeScript">TypeScript (type-safe code)</span></div>
-      <div class="feature"><span class="feature-icon">✨</span> <span data-en="Framer Motion (animations)" data-ar="Framer Motion (رسوم متحركة)">Framer Motion (animations)</span></div>
-      <div class="feature"><span class="feature-icon">🚀</span> <span data-en="Vercel deployment (global CDN)" data-ar="نشر Vercel (CDN عالمي)">Vercel deployment (global CDN)</span></div>
-      <div class="feature"><span class="feature-icon">📊</span> <span data-en="Google Analytics 4 (GA4)" data-ar="Google Analytics 4">Google Analytics 4 (GA4)</span></div>
-      <div class="feature"><span class="feature-icon">🔍</span> <span data-en="Full SEO (schema, OG, sitemap)" data-ar="SEO كامل (مخطط، OG، خريطة الموقع)">Full SEO (schema, OG, sitemap)</span></div>
-      <div class="feature"><span class="feature-icon">💬</span> <span data-en="WhatsApp floating CTA" data-ar="زر واتساب عائم">WhatsApp floating CTA</span></div>
-      <div class="feature"><span class="feature-icon">📧</span> <span data-en="Formspree contact form" data-ar="نموذج تواصل Formspree">Formspree contact form</span></div>
-      <div class="feature"><span class="feature-icon">📱</span> <span data-en="Mobile-first responsive design" data-ar="تصميم متجاوب أولاً للهاتف">Mobile-first responsive design</span></div>
-    </div>
-  </div>
-
-  <hr class="divider" />
-
-  <!-- 04 SEO -->
-  <div class="section">
-    <p class="section-num">04</p>
-    <h2 class="section-title font-display" data-en="SEO & <em>Search Authority</em>" data-ar="SEO و<em>سلطة البحث</em>">SEO & <em>Search Authority</em></h2>
-    <p class="section-text" data-en="Engineered to rank for high-intent restaurant searches in Dubai. Every technical signal optimized for local SEO dominance." data-ar="مصمم للترتيب في عمليات البحث العالية النية في دبي. كل إشارة تقنية محسّنة.">Engineered to rank for high-intent restaurant searches in Dubai. Every technical signal optimized for local SEO dominance.</p>
-    <div class="cards" style="margin-top: 2rem;">
-      <div class="card">
-        <div class="card-title" data-en="Target Keywords" data-ar="الكلمات المفتاحية المستهدفة">Target Keywords</div>
-        <div class="card-text" data-en="Lebanese restaurant Dubai · Arabic restaurant DIFC · fine dining Dubai · best mezze Dubai · Lebanese cuisine UAE" data-ar="مطعم لبناني دبي · مطعم عربي DIFC · طعام فاخر دبي · أفضل ميزة دبي">Lebanese restaurant Dubai · Arabic restaurant DIFC · fine dining Dubai · best mezze Dubai · Lebanese cuisine UAE</div>
-      </div>
-      <div class="card">
-        <div class="card-title" data-en="Schema.org" data-ar="Schema.org">Schema.org</div>
-        <div class="card-text" data-en="Restaurant structured data (cuisine, price range, hours, address, geo-coords). Perfect for Google Maps & search." data-ar="بيانات المطعم المنظمة (الطهي، نطاق السعر، الساعات، العنوان).">Restaurant structured data (cuisine, price range, hours, address, geo-coords). Perfect for Google Maps & search.</div>
-      </div>
-      <div class="card">
-        <div class="card-title" data-en="Files Delivered" data-ar="الملفات المسلّمة">Files Delivered</div>
-        <div class="card-text" data-en="robots.txt · sitemap.xml · llms.txt · Open Graph meta · Twitter cards · JSON-LD schema" data-ar="robots.txt · sitemap.xml · llms.txt · Open Graph meta · بطاقات تويتر">robots.txt · sitemap.xml · llms.txt · Open Graph meta · Twitter cards · JSON-LD schema</div>
+  <section class="features-section">
+    <div class="features-inner">
+      <h2 class="section-title" data-key="features-title">Everything Included</h2>
+      <div class="features-grid">
+        <div class="feature-item"><div class="feature-icon">📱</div><div class="feature-text"><strong data-key="f1-title">Works on every device</strong><span data-key="f1-body">Phone, tablet, desktop — flawless on all screens.</span></div></div>
+        <div class="feature-item"><div class="feature-icon">🔍</div><div class="feature-text"><strong data-key="f2-title">Shows up on Google</strong><span data-key="f2-body">When diners search for Lebanese food in Dubai, you appear.</span></div></div>
+        <div class="feature-item"><div class="feature-icon">💬</div><div class="feature-text"><strong data-key="f3-title">WhatsApp button</strong><span data-key="f3-body">Group bookings and quick questions — one tap away.</span></div></div>
+        <div class="feature-item"><div class="feature-icon">📧</div><div class="feature-text"><strong data-key="f4-title">Reservation & enquiry form</strong><span data-key="f4-body">Booking requests go straight to your inbox.</span></div></div>
+        <div class="feature-item"><div class="feature-icon">📊</div><div class="feature-text"><strong data-key="f5-title">Visitor tracking</strong><span data-key="f5-body">Know exactly how many diners find you online every day.</span></div></div>
+        <div class="feature-item"><div class="feature-icon">🤖</div><div class="feature-text"><strong data-key="f6-title">AI search ready</strong><span data-key="f6-body">Visible on ChatGPT, Google AI, and Perplexity recommendations.</span></div></div>
+        <div class="feature-item"><div class="feature-icon">⚡</div><div class="feature-text"><strong data-key="f7-title">Loads in under 2 seconds</strong><span data-key="f7-body">Fast on any connection — no one waits, no one leaves.</span></div></div>
+        <div class="feature-item"><div class="feature-icon">🗺️</div><div class="feature-text"><strong data-key="f8-title">Google Maps</strong><span data-key="f8-body">Your restaurant location, one click away from any device.</span></div></div>
+        <div class="feature-item"><div class="feature-icon">🌐</div><div class="feature-text"><strong data-key="f9-title">Multi-language ready</strong><span data-key="f9-body">Arabic, French, Russian available on request.</span></div></div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <hr class="divider" />
+  <section class="pricing-section">
+    <h2 class="section-title" data-key="pricing-title">Your Investment</h2>
+    <table class="pricing-table">
+      <thead><tr><th data-key="th-plan">Plan</th><th data-key="th-price">Price</th><th data-key="th-includes">What you get</th></tr></thead>
+      <tbody>
+        <tr><td><span class="plan-name" data-key="p1-name">Starter</span></td><td><span class="plan-price">AED 1,500</span></td><td data-key="p1-desc">Single-page website, WhatsApp button, Google-ready, mobile-friendly</td></tr>
+        <tr><td><span class="plan-name" data-key="p2-name">Launch</span></td><td><span class="plan-price">AED 2,500</span></td><td data-key="p2-desc">Full website, enquiry form, WhatsApp, Google-ready, visitor tracking</td></tr>
+        <tr class="highlight"><td><span class="plan-name" data-key="p3-name">Growth ⭐</span></td><td><span class="plan-price">AED 4,500</span></td><td data-key="p3-desc">Everything in Launch + 3 months of updates and support + AI search optimisation</td></tr>
+        <tr><td><span class="plan-name" data-key="p4-name">Premium</span></td><td><span class="plan-price">AED 8,000+</span></td><td data-key="p4-desc">Everything in Growth + Google advertising setup + monthly performance reports</td></tr>
+      </tbody>
+    </table>
+  </section>
 
-  <!-- 05 PRICING -->
-  <div class="section">
-    <p class="section-num">05</p>
-    <h2 class="section-title font-display" data-en="Investment <em>Plans</em>" data-ar="خطط <em>الاستثمار</em>">Investment <em>Plans</em></h2>
-    <p class="section-text" data-en="Transparent, fixed pricing. No surprises. All plans include 30 days of post-launch support and domain setup guidance." data-ar="أسعار شفافة وثابتة. لا مفاجآت. جميع الخطط تشمل 30 يومًا من الدعم بعد الإطلاق.">Transparent, fixed pricing. No surprises. All plans include 30 days of post-launch support and domain setup guidance.</p>
-    <div class="pricing">
-      <div class="plan">
-        <p class="plan-name" data-en="Starter" data-ar="المبتدئ">Starter</p>
-        <p class="plan-price">AED 1,500</p>
-        <p class="plan-period" data-en="one-time" data-ar="دفعة واحدة">one-time</p>
-        <ul class="plan-features">
-          <li data-en="5-page website" data-ar="موقع 5 صفحات">5-page website</li>
-          <li data-en="Mobile responsive" data-ar="متجاوب مع الهاتف">Mobile responsive</li>
-          <li data-en="Menu display" data-ar="عرض القائمة">Menu display</li>
-          <li data-en="Basic SEO" data-ar="SEO أساسي">Basic SEO</li>
-        </ul>
-      </div>
-      <div class="plan">
-        <p class="plan-name" data-en="Launch" data-ar="الإطلاق">Launch</p>
-        <p class="plan-price">AED 2,500</p>
-        <p class="plan-period" data-en="one-time" data-ar="دفعة واحدة">one-time</p>
-        <ul class="plan-features">
-          <li data-en="Full website (all sections)" data-ar="موقع كامل">Full website (all sections)</li>
-          <li data-en="Expanded menu (80+ items)" data-ar="قائمة موسعة">Expanded menu (80+ items)</li>
-          <li data-en="Animations & interactions" data-ar="رسوم متحركة">Animations & interactions</li>
-          <li data-en="WhatsApp button" data-ar="زر واتساب">WhatsApp button</li>
-          <li data-en="GA4 integration" data-ar="تكامل GA4">GA4 integration</li>
-        </ul>
-      </div>
-      <div class="plan recommended">
-        <span class="plan-badge" data-en="Recommended" data-ar="موصى به">Recommended</span>
-        <p class="plan-name" data-en="Growth" data-ar="النمو">Growth</p>
-        <p class="plan-price">AED 4,500</p>
-        <p class="plan-period" data-en="one-time" data-ar="دفعة واحدة">one-time</p>
-        <ul class="plan-features">
-          <li data-en="Everything in Launch" data-ar="كل شيء في خطة الإطلاق">Everything in Launch</li>
-          <li data-en="Restaurant schema.org markup" data-ar="ترميز مطعم schema.org">Restaurant schema.org markup</li>
-          <li data-en="Gallery with hover effects" data-ar="معرض مع تأثيرات التمرير">Gallery with hover effects</li>
-          <li data-en="Advanced animations" data-ar="رسوم متحركة متقدمة">Advanced animations</li>
-          <li data-en="Performance optimisation" data-ar="تحسين الأداء">Performance optimisation</li>
-          <li data-en="3-month maintenance" data-ar="صيانة 3 أشهر">3-month maintenance</li>
-        </ul>
-      </div>
-      <div class="plan">
-        <p class="plan-name" data-en="Premium" data-ar="المميز">Premium</p>
-        <p class="plan-price">AED 8,000<span style="font-size:1rem">+</span></p>
-        <p class="plan-period" data-en="custom project" data-ar="مشروع مخصص">custom project</p>
-        <ul class="plan-features">
-          <li data-en="Bespoke design system" data-ar="نظام تصميم مخصص">Bespoke design system</li>
-          <li data-en="Online booking system" data-ar="نظام الحجز الإلكتروني">Online booking system</li>
-          <li data-en="Multi-language (AR/EN)" data-ar="متعدد اللغات">Multi-language (AR/EN)</li>
-          <li data-en="Event hosting pages" data-ar="صفحات استضافة الأحداث">Event hosting pages</li>
-          <li data-en="12-month retainer" data-ar="احتفاظ 12 شهرًا">12-month retainer</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- CTA -->
   <section class="cta-section">
-    <div class="cta-inner">
-      <h2 class="cta-title font-display" data-en="Ready to Serve <em style='color:var(--gold)'>Levantine Excellence?</em>" data-ar="مستعد لتقديم <em style='color:var(--gold)'>التميز الشامي؟</em>">Ready to Serve <em style="color:var(--gold)">Levantine Excellence?</em></h2>
-      <p class="cta-text" data-en="Let's build a web experience that brings Levant & Co. to the world. Starting is just one conversation away." data-ar="دعنا نبني تجربة ويب تجلب لفان أند كو. للعالم. البدء هو محادثة واحدة فقط.">Let's build a web experience that brings Levant & Co. to the world. Starting is just one conversation away.</p>
-      <div class="cta-buttons">
-        <a href="https://wa.me/971500000000?text=Hello%20Web%20Vanguard%2C%20I%20am%20interested%20in%20the%20Levant%20%26%20Co%20proposal." target="_blank" class="btn-whatsapp">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          <span data-en="WhatsApp Us" data-ar="تواصل عبر واتساب">WhatsApp Us</span>
-        </a>
-        <a href="https://levant-co.vercel.app" target="_blank" class="btn-demo">
-          <span data-en="View Live Demo →" data-ar="عرض الموقع الحي →">View Live Demo →</span>
-        </a>
-      </div>
+    <h2 data-key="cta-h2">Ready to get more clients?</h2>
+    <p data-key="cta-sub">Your website is ready. Let's put your name on it.</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/971500000000?text=Hi%20Levant%20%26%20Co.%2C%20I%20saw%20your%20web%20proposal%20and%20I%27m%20interested" target="_blank" class="btn-whatsapp">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span data-key="btn-wa">Chat on WhatsApp</span>
+      </a>
+      <a href="https://levant-co.vercel.app" target="_blank" class="btn-secondary"><span data-key="btn-demo">View Live Website →</span></a>
     </div>
   </section>
 
-  <footer>
-    <p>© 2026 Web Vanguard — AI-Powered Web Design Agency, Dubai, UAE</p>
-  </footer>
+  <footer><p>© 2026 Web Vanguard · Dubai · <a href="mailto:hello@webvanguard.ai">hello@webvanguard.ai</a></p></footer>
 
   <script>
-    let isAr = false;
-    function toggleLang() {
-      isAr = !isAr;
-      document.getElementById('langBtn').textContent = isAr ? 'EN' : 'عربي';
-      document.documentElement.dir = isAr ? 'rtl' : 'ltr';
-      document.querySelectorAll('[data-en][data-ar]').forEach(el => {
-        el.innerHTML = isAr ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+    const translations = {
+      en: {
+        "hero-label": "Exclusive Web Design Proposal · Dubai · March 2026",
+        "hero-h1": "Levant\n& Co.",
+        "hero-tagline": "Bring more guests to your table — starting with the ones searching online right now.",
+        "pill-plan": "Growth Plan", "hero-link": "View Live Website →",
+        "opp-title": "Your clients are searching online right now.",
+        "opp-body": "Dubai diners discover new restaurants online and on Instagram. Without a professional website, your authentic Lebanese cuisine is only reaching the people who already know you exist.",
+        "opp-conclusion": "We built your website. It's ready.",
+        "built-title": "What We Built for You",
+        "b1-title": "The Ambience", "b1-body": "A visually rich opening that puts guests in the mood before they've even made a reservation. Atmosphere sells before food does — and your opening does the selling.",
+        "b2-title": "The Menu", "b2-body": "Your full menu with descriptions and prices in AED, beautifully presented. Let the food speak for itself — every dish deserves to be seen before it's tasted.",
+        "b3-title": "The Story", "b3-body": "Lebanese hospitality, family heritage, culinary philosophy. Guests want to know the people behind the restaurant before they book a table — this section tells that story.",
+        "b4-title": "The Experience", "b4-body": "A gallery of dishes, the dining room, special occasions. Every image is an invitation — show them what they'll find when they arrive.",
+        "b5-title": "Reserve a Table", "b5-body": "A reservation and enquiry form, WhatsApp for group bookings, and your location so guests can find you without friction. Every path leads to a seated guest.",
+        "features-title": "Everything Included",
+        "f1-title": "Works on every device", "f1-body": "Phone, tablet, desktop — flawless on all screens.",
+        "f2-title": "Shows up on Google", "f2-body": "When diners search for Lebanese food in Dubai, you appear.",
+        "f3-title": "WhatsApp button", "f3-body": "Group bookings and quick questions — one tap away.",
+        "f4-title": "Reservation & enquiry form", "f4-body": "Booking requests go straight to your inbox.",
+        "f5-title": "Visitor tracking", "f5-body": "Know exactly how many diners find you online every day.",
+        "f6-title": "AI search ready", "f6-body": "Visible on ChatGPT, Google AI, and Perplexity recommendations.",
+        "f7-title": "Loads in under 2 seconds", "f7-body": "Fast on any connection — no one waits, no one leaves.",
+        "f8-title": "Google Maps", "f8-body": "Your restaurant location, one click away from any device.",
+        "f9-title": "Multi-language ready", "f9-body": "Arabic, French, Russian available on request.",
+        "pricing-title": "Your Investment",
+        "th-plan": "Plan", "th-price": "Price", "th-includes": "What you get",
+        "p1-name": "Starter", "p1-desc": "Single-page website, WhatsApp button, Google-ready, mobile-friendly",
+        "p2-name": "Launch", "p2-desc": "Full website, enquiry form, WhatsApp, Google-ready, visitor tracking",
+        "p3-name": "Growth ⭐", "p3-desc": "Everything in Launch + 3 months of updates and support + AI search optimisation",
+        "p4-name": "Premium", "p4-desc": "Everything in Growth + Google advertising setup + monthly performance reports",
+        "cta-h2": "Ready to get more clients?", "cta-sub": "Your website is ready. Let's put your name on it.",
+        "btn-wa": "Chat on WhatsApp", "btn-demo": "View Live Website →"
+      },
+      ar: {
+        "hero-label": "عرض تصميم ويب حصري · دبي · مارس 2026",
+        "hero-h1": "لفانت\nوشركاه",
+        "hero-tagline": "جلب المزيد من الضيوف إلى طاولتك — بدءاً بمن يبحثون على الإنترنت الآن.",
+        "pill-plan": "خطة النمو", "hero-link": "عرض الموقع المباشر ←",
+        "opp-title": "عملاؤكم يبحثون على الإنترنت الآن.",
+        "opp-body": "يكتشف رواد المطاعم في دبي مطاعم جديدة على الإنترنت وإنستغرام. بدون موقع احترافي، طعامكم اللبناني الأصيل يصل فقط للذين يعرفون أنكم موجودون.",
+        "opp-conclusion": "قمنا ببناء موقعكم. إنه جاهز.",
+        "built-title": "ما قمنا ببنائه لكم",
+        "b1-title": "الأجواء", "b1-body": "افتتاحية غنية بصرياً تضع الضيوف في المزاج قبل الحجز. الأجواء تبيع قبل الطعام.",
+        "b2-title": "القائمة", "b2-body": "قائمتكم كاملة مع أوصاف وأسعار بالدرهم، جميلة المظهر. دعوا الطعام يتحدث عن نفسه.",
+        "b3-title": "القصة", "b3-body": "الضيافة اللبنانية والتراث العائلي والفلسفة الطهوية. الضيوف يريدون معرفة الناس خلف المطعم.",
+        "b4-title": "التجربة", "b4-body": "معرض الأطباق وقاعة الطعام والمناسبات الخاصة. كل صورة دعوة.",
+        "b5-title": "احجز طاولة", "b5-body": "نموذج حجز واستفسار، واتساب لحجوزات المجموعات، وموقعكم للضيوف يجدونكم بسهولة.",
+        "features-title": "كل شيء مشمول",
+        "f1-title": "يعمل على كل الأجهزة", "f1-body": "هاتف، تابلت، كمبيوتر — مثالي على جميع الشاشات.",
+        "f2-title": "يظهر على جوجل", "f2-body": "عندما يبحث رواد المطاعم عن طعام لبناني في دبي، تظهرون.",
+        "f3-title": "زر واتساب", "f3-body": "حجوزات المجموعات والأسئلة السريعة بنقرة واحدة.",
+        "f4-title": "نموذج الحجز والاستفسار", "f4-body": "طلبات الحجز تصل مباشرة إلى بريدكم.",
+        "f5-title": "تتبع الزوار", "f5-body": "اعرفوا كم ضيفاً محتملاً يجدكم يومياً على الإنترنت.",
+        "f6-title": "جاهز للبحث بالذكاء الاصطناعي", "f6-body": "ظاهر على ChatGPT وGoogle AI وPerplexity.",
+        "f7-title": "يُحمَّل في أقل من ثانيتين", "f7-body": "سريع على أي اتصال.",
+        "f8-title": "خرائط جوجل", "f8-body": "موقع مطعمكم بنقرة واحدة.",
+        "f9-title": "جاهز للتعدد اللغوي", "f9-body": "العربية والفرنسية والروسية متاحة عند الطلب.",
+        "pricing-title": "استثماركم",
+        "th-plan": "الخطة", "th-price": "السعر", "th-includes": "ما تحصل عليه",
+        "p1-name": "المبتدئ", "p1-desc": "موقع صفحة واحدة، زر واتساب، جاهز لجوجل، متوافق مع الجوال",
+        "p2-name": "الإطلاق", "p2-desc": "موقع كامل، نموذج استفسار، واتساب، جاهز لجوجل، تتبع الزوار",
+        "p3-name": "النمو ⭐", "p3-desc": "كل شيء في خطة الإطلاق + 3 أشهر تحديثات ودعم + تحسين البحث بالذكاء الاصطناعي",
+        "p4-name": "بريميوم", "p4-desc": "كل شيء في النمو + إعداد إعلانات جوجل + تقارير أداء شهرية",
+        "cta-h2": "مستعدون للحصول على المزيد من الضيوف؟", "cta-sub": "موقعكم جاهز. لنضع اسمكم عليه.",
+        "btn-wa": "تحدّث عبر واتساب", "btn-demo": "عرض الموقع المباشر ←"
+      }
+    };
+    function setLang(lang) {
+      document.querySelectorAll('[data-key]').forEach(el => {
+        if (translations[lang][el.dataset.key] !== undefined) el.textContent = translations[lang][el.dataset.key];
       });
+      document.documentElement.lang = lang === 'ar' ? 'ar' : 'en';
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-ar').classList.toggle('active', lang === 'ar');
     }
   </script>
 </body>
